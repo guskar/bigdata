@@ -1,0 +1,35 @@
+{
+  "name": "crud-snippets",
+  "version": "1.0.0",
+  "description": "1DV026 - Crudsnippets",
+  "type": "module",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "nodemon --inspect -r dotenv/config src/server.js",
+    "lint": "npx eslint ./src || exit 0",
+    "lint:fix": "npx eslint ./src --fix || exit 0"
+  },
+  "contributors": [
+    "Gustav Karlberg <gk222iv@student.lnu.se>"
+  ],
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "@elastic/elasticsearch": "^8.6.0",
+    "bcrypt": "^5.0.1",
+    "csp": "^0.0.1-alpha1",
+    "ejs": "^3.1.6",
+    "express": "^4.17.2",
+    "express-ejs-layouts": "^2.5.1",
+    "express-session": "^1.17.2",
+    "helmet": "^5.0.2",
+    "mongoose": "^6.1.4",
+    "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "@lnu/eslint-config": "^1.1.4",
+    "dotenv": "^10.0.0",
+    "nodemon": "^2.0.15"
+  }
+}
