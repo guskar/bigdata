@@ -4,28 +4,44 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>1DV026 - crud-snippets</title>
- 
-  <link rel="stylesheet" href="./css/styles.css" />
-  <script src="https://code.highcharts.com/highcharts.js"></script>
+  <title>Games</title>
 
+  <link rel="stylesheet" href="./css/styles.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
 <body>
 
-  <div>
+  <div id="container">
     <h1>Games</h1>
-    <% response?.hits.hits.forEach(hit=> { %>
-      <div>
-        <h2>
-          <%= hit._source.title %>
-        </h2>
-        <p>
-          <%= hit._source.rating %>
-        </p>
-      </div>
-      <% }); %>
-        <div>
+    <canvas id="myChart"></canvas>
+  </div>
+
+  <script>
+    const chartData = <%- JSON.stringify(data) %>
+
+    var ctx = document.getElementById('myChart').getContext('2d')
+    var myChart = new Chart(ctx, {
+      type: 'line',
+      data: {
+        datasets: [{
+          data: chartData.map(item => item.y),
+          backgroundColor: [
+            '#FF6384',
+            '#36A2EB',
+            '#FFCE56',
+            '#00FF00',
+            '#0000FF',
+            '#FF00FF',
+          ]
+        }],
+        labels: chartData.map(item => item.name)
+      },
+      options: {
+        responsive: true
+      }
+    });
+  </script>
 
 </body>
 

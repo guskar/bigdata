@@ -40,7 +40,7 @@ export class HomeController {
             must: [
               {
                 match: {
-                  title: 'Grand Theft Auto IV'
+                  title: 'Final Fantasy VI'
                 }
               },
               {
@@ -56,6 +56,13 @@ export class HomeController {
       }
     })
 
-    res.render('home/index', { response })
+    const hits = response.hits.hits
+
+    const data = hits.map(hit => ({
+      name: hit._source.title,
+      y: hit._source.rating
+    }))
+
+    res.render('home/index', { data })
   }
 }

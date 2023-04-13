@@ -28,7 +28,16 @@ try {
 
   // use helmet for security.
   app.use(helmet())
-  app.use(helmet.contentSecurityPolicy({ useDefaults: true }))
+  app.use(
+    helmet.contentSecurityPolicy({
+      directives: {
+        ...helmet.contentSecurityPolicy.getDefaultDirectives(),
+        'script-src': ["'self'", 'code.jquery.com', 'cdn.jsdelivr.net', "'unsafe-eval'", 'cdnjs.cloudflare.com', 'code.highcharts.com', "'unsafe-inline'"]
+      },
+      crossOriginEmbedderPolicy: false,
+      crossOriginResourcePolicy: false
+    })
+  )
 
   // View engine setup.
   app.set('view engine', 'ejs')
