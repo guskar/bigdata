@@ -1,12 +1,32 @@
-<!-- Main jumbotron for a primary marketing message or call to action -->
-<div class="jumbotron">
-  <h1>Games</h1>
-    <% response?.hits.hits.forEach(hit => { %>
-      <div>
-        <h2><%= hit._source.title %></h2>
-        <p><%= hit._source.rating %></p>
-      </div>
-    <% }); %>
-<div class="container">
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>1DV026 - crud-snippets</title>
  
-    
+  <link rel="stylesheet" href="./css/styles.css" />
+  <script src="https://code.highcharts.com/highcharts.js"></script>
+
+</head>
+
+<body>
+
+  <div>
+    <h1>Games</h1>
+    <% response?.hits.hits.forEach(hit=> { %>
+      <div>
+        <h2>
+          <%= hit._source.title %>
+        </h2>
+        <p>
+          <%= hit._source.rating %>
+        </p>
+      </div>
+      <% }); %>
+        <div>
+
+</body>
+
+</html>

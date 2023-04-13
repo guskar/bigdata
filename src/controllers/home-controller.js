@@ -4,6 +4,8 @@
  * @author Gustav Karlberg
  * @version 1.0.0
  */
+import { Client } from '@elastic/elasticsearch'
+import fs from 'fs'
 
 /**
  * Encapsulates a controller.
@@ -18,5 +20,42 @@ export class HomeController {
    * @param {Function} next - Express next middleware function.
    */
   async index (req, res, next) {
+    const client = new Client({
+      node: 'https://localhost:9200',
+      auth: {
+        username: process.env.USERNAME,
+        password: process.env.PASSWORD
+      },
+      tls: {
+        ca: fs.readFileSync('/Users/gustavkarlberg/elasticsearch-8.7.0/config/certs/http_ca.crt'),
+        rejectUnauthorized: false
+      }
+    })
+
+    const response = await client.search({
+      index: 'gamesindex',
+      body: {
+        query: {
+          bool: {
+            must: [
+              {
+                match: {
+                  title: 'Grand Theft Auto IV'
+                }
+              },
+              {
+                range: {
+                  rating: {
+                    gte: 3.8
+                  }
+                }
+              }
+            ]
+          }
+        }
+      }
+    })
+
+    res.render('home/index', { response })
   }
 }
