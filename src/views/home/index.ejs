@@ -18,13 +18,14 @@
   </div>
 
   <script>
-    const chartData = <%- JSON.stringify(data) %>
+    const chartData = JSON.parse('<%- JSON.stringify(data) %>');
 
-    var ctx = document.getElementById('myChart').getContext('2d')
+    const ctx = document.getElementById('myChart').getContext('2d')
     var myChart = new Chart(ctx, {
       type: 'line',
       data: {
         datasets: [{
+          label: 'ratings',
           data: chartData.map(item => item.y),
           backgroundColor: [
             '#FF6384',
