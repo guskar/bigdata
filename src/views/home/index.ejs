@@ -13,16 +13,15 @@
 <body>
 
   <div id="container">
-    <h1>Games</h1>
     <canvas id="myChart"></canvas>
   </div>
 
   <script>
-    const chartData = JSON.parse('<%- JSON.stringify(data) %>');
+    const chartData = JSON.parse('<%- JSON.stringify(data) %>')
 
     const ctx = document.getElementById('myChart').getContext('2d')
     var myChart = new Chart(ctx, {
-      type: 'line',
+      type: 'bar',
       data: {
         datasets: [{
           label: 'ratings',
@@ -41,7 +40,7 @@
       options: {
         responsive: true
       }
-    });
+    })
   </script>
 
 </body>

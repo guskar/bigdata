@@ -5,19 +5,26 @@
  * @version 1.0.0
  */
 
-import { Client } from '@elastic/elasticsearch'
-import fs from 'fs'
+import { ElasticSearchClient } from '../clients/elasticClient.js'
+
 /**
  * Encapsulates a Home service.
  */
 export class HomeService {
   /**
+   * The service.
+   *
+   * @type {ElasticSearchClient}
+   */
+  #client
+  /**
    * Initializes a new instance.
    *
+   * @param {ElasticSearchClient} client - A service instantiated from a class with the same capabilities as UserService.
    */
-  // constructor (repository = new UsersRepository()) {
-  //   super(repository)
-  // }
+  constructor (client = new ElasticSearchClient()) {
+    this.#client = client
+  }
 
   /**
    * Gets elastic data.
@@ -25,19 +32,7 @@ export class HomeService {
    * @returns {object} - object representing elastic data.
    */
   async getData () {
-    const client = new Client({
-      node: 'https://localhost:9200',
-      auth: {
-        username: process.env.USERNAME,
-        password: process.env.PASSWORD
-      },
-      tls: {
-        ca: fs.readFileSync('/Users/gustavkarlberg/elasticsearch-8.7.0/config/certs/http_ca.crt'),
-        rejectUnauthorized: false
-      }
-    })
-
-    const response = await client.search({
+    const response = await this.#client.search({
       index: 'gamesindex',
       body: {
         query: {
@@ -45,7 +40,7 @@ export class HomeService {
             must: [
               {
                 match: {
-                  title: 'Final Fantasy VI'
+                  title: 'Final Fantasy'
                 }
               },
               {

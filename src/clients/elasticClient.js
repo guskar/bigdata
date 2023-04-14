@@ -4,7 +4,7 @@ import fs from 'fs'
 /**
  * Elasticsearch client class.
  */
-export class ElasticsearchClient {
+export class ElasticSearchClient {
   /**
    * Constructor that sets up config for client.
    */

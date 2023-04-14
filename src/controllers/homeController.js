@@ -36,8 +36,11 @@ export class HomeController {
    * @param {Function} next - Express next middleware function.
    */
   async index (req, res, next) {
-    const data = await this.#service.getData()
-
-    res.render('home/index', { data })
+    try {
+      const data = await this.#service.getData()
+      res.render('home/index', { data })
+    } catch (error) {
+      next(error)
+    }
   }
 }
