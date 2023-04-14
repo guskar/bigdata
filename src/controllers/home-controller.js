@@ -22,14 +22,14 @@ export class HomeController {
   /**
    * Initializes a new instance.
    *
-   * @param {HomeService} service - A service instantiated from a class with the same capabilities as UserService.
+   * @param {HomeService} service - A service instantiated from a class with the same capabilities as HomeService.
    */
   constructor (service = new HomeService()) {
     this.#service = service
   }
 
   /**
-   * Authenticates a user.
+   * Renders a diagram.
    *
    * @param {object} req - Express request object.
    * @param {object} res - Express response object.

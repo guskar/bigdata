@@ -1,5 +1,5 @@
 /**
- * Module for the UsersService.
+ * Module for the Home Service.
  *
  * @author Gustav Karlberg
  * @version 1.0.0
@@ -8,7 +8,7 @@
 import { Client } from '@elastic/elasticsearch'
 import fs from 'fs'
 /**
- * Encapsulates a home service.
+ * Encapsulates a Home service.
  */
 export class HomeService {
   /**
@@ -22,7 +22,7 @@ export class HomeService {
   /**
    * Gets elastic data.
    *
-   * @returns {object} - boject representing elastic data.
+   * @returns {object} - object representing elastic data.
    */
   async getData () {
     const client = new Client({
