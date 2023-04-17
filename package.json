@@ -1,7 +1,7 @@
 {
-  "name": "crud-snippets",
+  "name": "big-data",
   "version": "1.0.0",
-  "description": "1DV026 - Crudsnippets",
+  "description": "1DV027 - Bigdata",
   "type": "module",
   "main": "src/server.js",
   "scripts": {
@@ -16,7 +16,7 @@
   "license": "MIT",
   "private": true,
   "dependencies": {
-    "@elastic/elasticsearch": "^8.6.0",
+    "@elastic/elasticsearch": "^7.11.0",
     "bcrypt": "^5.0.1",
     "canvas": "^2.11.2",
     "chart.js": "^4.2.1",

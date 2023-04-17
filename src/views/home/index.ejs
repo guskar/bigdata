@@ -18,21 +18,17 @@
 
   <script>
     const chartData = JSON.parse('<%- JSON.stringify(data) %>')
+    console.log(chartData)
 
     const ctx = document.getElementById('myChart').getContext('2d')
     var myChart = new Chart(ctx, {
       type: 'bar',
       data: {
         datasets: [{
-          label: 'ratings',
+          label: 'Ratings of all Final Fantasy games with a rating over 3.0',
           data: chartData.map(item => item.y),
           backgroundColor: [
-            '#FF6384',
-            '#36A2EB',
-            '#FFCE56',
-            '#00FF00',
-            '#0000FF',
-            '#FF00FF',
+            '#FFCE56'
           ]
         }],
         labels: chartData.map(item => item.name)

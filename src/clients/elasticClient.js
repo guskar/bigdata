@@ -10,11 +10,11 @@ export class ElasticSearchClient {
    */
   constructor () {
     this.client = new Client({
-      node: 'https://localhost:9200',
-      auth: {
-        username: process.env.USERNAME,
-        password: process.env.PASSWORD
-      },
+      node: 'https://m53dv4lxp7:zoop3y5p9w@lnu-search-8251528146.us-east-1.bonsaisearch.net:443',
+      // auth: {
+      //   username: process.env.USERNAME,
+      //   password: process.env.PASSWORD
+      // },
       tls: {
         ca: fs.readFileSync('/Users/gustavkarlberg/elasticsearch-8.7.0/config/certs/http_ca.crt'),
         rejectUnauthorized: false
