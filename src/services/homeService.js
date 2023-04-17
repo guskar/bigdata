@@ -32,33 +32,31 @@ export class HomeService {
    * @returns {object} - object representing elastic data.
    */
   async getData () {
-    const response = await this.#client.search({ index: 'gamesindex', body: { size: 30 } })
-    // const response = await this.#client.search({
-    //   index: 'gamesindex',
-    //   body: {
-    //     query: {
-    //       bool: {
-    //         must: [
-    //           {
-    //             match: {
-    //               title: 'Final Fantasy'
-    //             }
-    //           },
-    //           {
-    //             range: {
-    //               rating: {
-    //                 gte: 3.0
-    //               }
-    //             }
-    //           }
-    //         ]
-    //       }
-    //     }
-    //   }
-    // })
+    const response = await this.#client.search({
+      index: 'gamesindex',
+      body: {
+        query: {
+          bool: {
+            must: [
+              {
+                match: {
+                  title: 'Final Fantasy'
+                }
+              },
+              {
+                range: {
+                  rating: {
+                    gte: 3.0
+                  }
+                }
+              }
+            ]
+          }
+        }
+      }
+    })
 
-    const hits = response.hits.hits
-    console.log(hits)
+    const hits = response.body.hits.hits
 
     const data = hits.map(hit => ({
       name: hit._source.title,
