@@ -20,7 +20,7 @@ export class HomeService {
   /**
    * Initializes a new instance.
    *
-   * @param {ElasticSearchClient} client - A service instantiated from a class with the same capabilities as UserService.
+   * @param {ElasticSearchClient} client - A service instantiated from a class with the same capabilities as ElasticSearchClient.
    */
   constructor (client = new ElasticSearchClient()) {
     this.#client = client
