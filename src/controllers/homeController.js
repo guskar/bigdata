@@ -5,7 +5,6 @@
  * @version 1.0.0
  */
 
-// import createError from 'http-errors'
 import { HomeService } from '../services/homeService.js'
 
 /**
@@ -29,7 +28,7 @@ export class HomeController {
   }
 
   /**
-   * Renders a diagram.
+   * Gets data from elastic and sends it to the view.
    *
    * @param {object} req - Express request object.
    * @param {object} res - Express response object.

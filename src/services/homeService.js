@@ -1,5 +1,5 @@
 /**
- * Module for the Home Service.
+ * Module for the HomeService.
  *
  * @author Gustav Karlberg
  * @version 1.0.0
@@ -8,7 +8,7 @@
 import { ElasticSearchClient } from '../clients/elasticClient.js'
 
 /**
- * Encapsulates a Home service.
+ * Encapsulates a HomeService.
  */
 export class HomeService {
   /**
